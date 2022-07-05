@@ -1,0 +1,9 @@
+	1. script /dev/null -c bash  *si no funciona -->  python -c 'import pty;pty.spawn("/bin/bash")'
+	2. CRTL +Z
+	3. stty raw -echo; fg
+	4. reset
+	5. xterm
+	6. export TERM=xterm
+	7. export SHELL=bash
+	8. stty size
+	9. stty rows XX columns XXX

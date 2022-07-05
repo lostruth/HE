@@ -1,0 +1,7 @@
+Reconocimiento 
+crackmapexec smb ip_victima
+
+Recursos compartidos en smb
+smbmap -H ip_victima -u 'null'
+smbmap -H ip_victima -u 'null' -r 'sharedfolder'
+smbclient -L ip_victima -N
